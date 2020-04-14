@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # Solo los instructores pueden crear alumnos
+  skip_before_action :authorize_request, only: :create
+
   # POST /signup
   # return authenticated token upon signup
   def create
